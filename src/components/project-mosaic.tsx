@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from 'react'
 import { Responsive, WidthProvider } from 'react-grid-layout'
 import 'react-grid-layout/css/styles.css'
@@ -10,112 +8,11 @@ import { Button } from "@/components/ui/button"
 import { GitBranch, MoreVertical } from 'lucide-react'
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Checkbox } from "@/components/ui/checkbox"
+import { Tab } from '@/App'
 
 const ResponsiveGridLayout = WidthProvider(Responsive)
 
-const initialTabs = [
-  {
-    i: 'observacion',
-    title: 'Observación del problema',
-    versions: [
-      { id: 'v1', content: 'Versión inicial de la observación del problema.', isDefault: true },
-      { id: 'v2', content: 'Observación actualizada después de la reunión con el equipo.', isDefault: false },
-    ],
-    currentVersion: 'v1',
-    w: 2,
-    h: 2
-  },
-  {
-    i: 'analisis',
-    title: 'Análisis de Causa Raíz',
-    versions: [
-      { id: 'v1', content: 'Primera iteración del análisis de causa raíz.', isDefault: true },
-      { id: 'v2', content: 'Análisis refinado con datos adicionales.', isDefault: false },
-    ],
-    currentVersion: 'v1',
-    w: 2,
-    h: 2
-  },
-  {
-    i: 'planteamiento',
-    title: 'Planteamiento del problema',
-    versions: [
-      { id: 'v1', content: 'Planteamiento inicial del problema.', isDefault: true },
-      { id: 'v2', content: 'Planteamiento revisado basado en el feedback del cliente.', isDefault: false },
-    ],
-    currentVersion: 'v1',
-    w: 2,
-    h: 2
-  },
-  {
-    i: 'objetivo',
-    title: 'Objetivo del proyecto',
-    versions: [
-      { id: 'v1', content: 'Objetivo preliminar del proyecto.', isDefault: true },
-      { id: 'v2', content: 'Objetivo ajustado después de la revisión del alcance.', isDefault: false },
-    ],
-    currentVersion: 'v1',
-    w: 2,
-    h: 2
-  },
-  {
-    i: 'alcance',
-    title: 'Alcance',
-    versions: [
-      { id: 'v1', content: 'global', isDefault: true },
-      { id: 'v2', content: 'regional', isDefault: false },
-    ],
-    currentVersion: 'v1',
-    w: 2,
-    h: 2
-  },
-  {
-    i: 'alternativas',
-    title: 'Alternativas de solución',
-    versions: [
-      { id: 'v1', content: 'Lista inicial de alternativas de solución.', isDefault: true },
-      { id: 'v2', content: 'Alternativas actualizadas después de la evaluación de factibilidad.', isDefault: false },
-    ],
-    currentVersion: 'v1',
-    w: 2,
-    h: 2
-  },
-  {
-    i: 'solucion',
-    title: 'Solución a desarrollar',
-    versions: [
-      { id: 'v1', content: 'Propuesta inicial de solución.', isDefault: true },
-      { id: 'v2', content: 'Solución refinada basada en los comentarios del equipo técnico.', isDefault: false },
-    ],
-    currentVersion: 'v1',
-    w: 2,
-    h: 2
-  },
-  {
-    i: 'diseno',
-    title: 'Diseño',
-    versions: [
-      { id: 'v1', content: 'Bosquejo inicial del diseño.', isDefault: true },
-      { id: 'v2', content: 'Diseño detallado con especificaciones técnicas.', isDefault: false },
-    ],
-    currentVersion: 'v1',
-    w: 2,
-    h: 2
-  },
-  {
-    i: 'construccion',
-    title: 'Construcción',
-    versions: [
-      { id: 'v1', content: 'Plan preliminar de construcción.', isDefault: true },
-      { id: 'v2', content: 'Plan de construcción actualizado con cronograma detallado.', isDefault: false },
-    ],
-    currentVersion: 'v1',
-    w: 2,
-    h: 2
-  },
-]
-
-export function ProjectMosaic() {
+export function ProjectMosaic({ initialTabs }: { initialTabs: Tab[] }) {
   const [tabs, setTabs] = useState(initialTabs)
   const [focusedTab, setFocusedTab] = useState<string | null>(null)
 
@@ -180,8 +77,7 @@ export function ProjectMosaic() {
   }
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Modelo de TMS y DM de liquidación</h1>
+    <div className="p-4 bg-white min-h-screen">
       <ResponsiveGridLayout
         className="layout"
         layouts={{ lg: layout }}
