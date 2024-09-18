@@ -1,10 +1,8 @@
-import './App.css'
+import { ProjectMosaic } from './components/project-mosaic'
 
 function App() {
   return (
-    <div className='min-h-screen bg-red-500'>
-      test
-    </div>
+    <ProjectMosaic />
   )
 }
 

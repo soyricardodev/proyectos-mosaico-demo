@@ -198,14 +198,13 @@ export function ProjectMosaic() {
                   value={tab.currentVersion} 
                   onValueChange={(value) => handleVersionChange(tab.i, value)}
                 >
-                  <SelectTrigger className="w-24 h-6 text-xs">
+                  <SelectTrigger className="w-14 h-6 text-xs">
                     <SelectValue placeholder="Version" />
                   </SelectTrigger>
                   <SelectContent className="z-50">
                     {tab.versions.map((version) => (
                       <SelectItem key={version.id} value={version.id} className="flex items-center justify-between">
-                        <span>{version.id}</span>
-                        {version.isDefault && <Check className="h-4 w-4 ml-2" />}
+                        {version.id}
                       </SelectItem>
                     ))}
                   </SelectContent>
